@@ -57,7 +57,7 @@ export function MoodGrid() {
         <MoodCard
           key={mood}
           mood={mood}
-          image={`/mood/${mood.toLowerCase()}.png`}
+          image={`/mood/${mood.toLowerCase()}.webp`}
         />
       ))}
     </FadeIn>

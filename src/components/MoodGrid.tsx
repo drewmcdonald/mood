@@ -88,6 +88,8 @@ function MoodCard(props: { mood: string; image: string }) {
           className="max-h-64 w-full grow object-cover"
           alt={props.mood}
           src={props.image}
+          height="100%"
+          width="100%"
         />
       </div>
 

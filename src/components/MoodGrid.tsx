@@ -81,7 +81,7 @@ function MoodCard(props: { mood: string; image: string }) {
       onClick={() => {
         mutate(props.mood);
       }}
-      className="group relative cursor-pointer overflow-hidden rounded-xl shadow-xl transition-transform duration-500 ease-in-out hover:translate-x-1 hover:translate-y-2 hover:shadow-xl"
+      className="group relative max-w-[1024px] cursor-pointer overflow-hidden rounded-xl shadow-xl transition-transform duration-500 ease-in-out hover:translate-x-1 hover:translate-y-2 hover:shadow-xl"
     >
       <div className="transition-all duration-500 ease-in-out group-hover:-translate-x-1 group-hover:-translate-y-2 group-hover:scale-110">
         <img

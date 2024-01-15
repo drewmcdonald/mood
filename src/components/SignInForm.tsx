@@ -32,13 +32,15 @@ export function SignInForm() {
 
   function onSubmit({ email, password }: z.infer<typeof FormSchema>) {
     client.auth.signInWithPassword({ email, password }).catch((error) => {
+      console.error(error);
       toast.error((error as Error).message);
     });
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={void form.handleSubmit(onSubmit)} className="space-y-3">
+      {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
         <FormField
           control={form.control}
           name="email"

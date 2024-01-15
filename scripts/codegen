@@ -1,0 +1,5 @@
+#! /bin/bash
+
+
+echo "/* eslint-disable @typescript-eslint/no-redundant-type-constituents */" > ./src/db/generated/types.ts
+npx supabase gen types typescript --local --schema public >> ./src/db/generated/types.ts

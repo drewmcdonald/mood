@@ -1,0 +1,5 @@
+#! /bin/bash
+
+set -e
+
+npx supabase db diff | npx supabase migration new "$1"

@@ -49,7 +49,7 @@ const MOODS = [
 export function MoodGrid() {
   return (
     <FadeIn
-      className="m-4 grid aspect-auto grid-cols-[repeat(auto-fill,minmax(100,1fr))] gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4"
+      className="grid aspect-auto grid-cols-2 gap-4 md:grid-cols-4"
       delay={25}
       transitionDuration={1500}
     >

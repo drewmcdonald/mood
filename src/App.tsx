@@ -11,10 +11,10 @@ function App() {
   if (!session) return <SignIn />;
 
   return (
-    <>
+    <div className="p-4">
       <MoodGrid />
       <LogOutButton />
-    </>
+    </div>
   );
 }
 

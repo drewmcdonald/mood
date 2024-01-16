@@ -4,24 +4,35 @@
  */
 import {
   CardTitle,
-  CardDescription,
   CardHeader,
   CardContent,
   Card,
 } from "@mood/components/ui/card";
 import { SignInForm } from "./SignInForm";
+import { Button } from "./ui/button";
+import { GitHubIcon } from "./vend/GitHubIcon";
+import { GoogleIcon } from "./vend/GoogleIcon";
 
 export default function SignInCard({ className }: { className?: string }) {
   return (
     <Card className={className}>
       <CardHeader>
         <CardTitle className="text-2xl">Sign In</CardTitle>
-        <CardDescription>
-          Enter your credentials to access your account
-        </CardDescription>
       </CardHeader>
       <CardContent>
+        <Button variant="outline" className="mb-2 w-full" disabled>
+          <GoogleIcon className="mr-2 h-4 w-4" />
+          Sign in with Google
+        </Button>
+        <Button variant="outline" className="mb-4 w-full" disabled>
+          <GitHubIcon className="mr-2 h-4 w-4" />
+          Sign in with GitHub
+        </Button>
+        <div className="mb-4 w-full border-b-2 border-gray-100" />
         <SignInForm />
+        <Button variant="outline" className=" mt-2 w-full" disabled>
+          Sign up
+        </Button>
       </CardContent>
     </Card>
   );

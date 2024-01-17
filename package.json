@@ -10,7 +10,7 @@
     "lint:formatting": "prettier --check .",
     "format": "prettier --write .",
     "preview": "vite preview",
-    "pwa-assets": "pwa-assets-generator --preset minimal-2023 public/logo.png"
+    "pwa-assets": "pwa-assets-generator"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",

@@ -5,6 +5,7 @@ specifiers:
   '@radix-ui/react-dialog': ^1.0.5
   '@radix-ui/react-label': ^2.0.2
   '@radix-ui/react-select': ^2.0.0
+  '@radix-ui/react-separator': ^1.0.3
   '@radix-ui/react-slot': ^1.0.2
   '@radix-ui/react-toast': ^1.1.5
   '@radix-ui/react-tooltip': ^1.0.7
@@ -51,6 +52,7 @@ dependencies:
   '@radix-ui/react-dialog': 1.0.5_c9ad6a19edb07aacbf654b07bdfcd8d5
   '@radix-ui/react-label': 2.0.2_c9ad6a19edb07aacbf654b07bdfcd8d5
   '@radix-ui/react-select': 2.0.0_c9ad6a19edb07aacbf654b07bdfcd8d5
+  '@radix-ui/react-separator': 1.0.3_c9ad6a19edb07aacbf654b07bdfcd8d5
   '@radix-ui/react-slot': 1.0.2_fa8ffd194b3760959fb917a5eaedfeaf
   '@radix-ui/react-toast': 1.1.5_c9ad6a19edb07aacbf654b07bdfcd8d5
   '@radix-ui/react-tooltip': 1.0.7_c9ad6a19edb07aacbf654b07bdfcd8d5
@@ -2057,6 +2059,27 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-remove-scroll: 2.5.5_fa8ffd194b3760959fb917a5eaedfeaf
+    dev: false
+
+  /@radix-ui/react-separator/1.0.3_c9ad6a19edb07aacbf654b07bdfcd8d5:
+    resolution: {integrity: sha512-itYmTy/kokS21aiV5+Z56MZB54KrhPgn6eHDKkFeOLR34HMN2s8PaN47qZZAGnvupcjxHaFZnW4pQEh0BvvVuw==}
+    peerDependencies:
+      '@types/react': '*'
+      '@types/react-dom': '*'
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.23.8
+      '@radix-ui/react-primitive': 1.0.3_c9ad6a19edb07aacbf654b07bdfcd8d5
+      '@types/react': 18.2.48
+      '@types/react-dom': 18.2.18
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /@radix-ui/react-slot/1.0.2_fa8ffd194b3760959fb917a5eaedfeaf:

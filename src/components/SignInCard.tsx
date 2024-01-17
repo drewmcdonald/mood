@@ -12,6 +12,7 @@ import { SignInForm } from "./SignInForm";
 import { Button } from "./ui/button";
 import { GitHubIcon } from "./vend/GitHubIcon";
 import { GoogleIcon } from "./vend/GoogleIcon";
+import { Separator } from "./ui/separator";
 
 export default function SignInCard({ className }: { className?: string }) {
   return (
@@ -28,7 +29,8 @@ export default function SignInCard({ className }: { className?: string }) {
           <GitHubIcon className="mr-2 h-4 w-4" />
           Sign in with GitHub
         </Button>
-        <div className="mb-4 w-full border-b-2 border-gray-100" />
+        <Separator />
+        <div className="mb-4 w-full  border-gray-100" />
         <SignInForm />
         <Button variant="outline" className=" mt-2 w-full" disabled>
           Sign up

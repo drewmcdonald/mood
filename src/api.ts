@@ -4,7 +4,16 @@ export function useApi() {
   const client = useSbClient();
 
   return {
-    queries: {},
+    queries: {
+      recents: async () => {
+        const result = await client
+          .from("moods")
+          .select()
+          .order("created_at", { ascending: false })
+          .limit(100);
+        return result.data;
+      },
+    },
     mutations: {
       logMood: async (mood: string) => {
         return client.from("moods").insert({ mood }).select();

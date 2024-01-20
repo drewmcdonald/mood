@@ -23,17 +23,17 @@ export default function SignInCard({ className }: { className?: string }) {
         <CardTitle className="text-2xl">Sign In</CardTitle>
       </CardHeader>
       <CardContent>
-        <Button variant="outline" className="mb-2 w-full" disabled>
+        <Button
+          variant="outline"
+          className="mb-2 w-full"
+          onClick={() =>
+            void client.auth.signInWithOAuth({ provider: "google" })
+          }
+        >
           <GoogleIcon className="mr-2 h-4 w-4" />
           Sign in with Google
         </Button>
-        <Button
-          variant="outline"
-          className="mb-4 w-full"
-          onClick={() =>
-            void client.auth.signInWithOAuth({ provider: "github" })
-          }
-        >
+        <Button variant="outline" className="mb-4 w-full" disabled>
           <GitHubIcon className="mr-2 h-4 w-4" />
           Sign in with GitHub
         </Button>

@@ -4,8 +4,6 @@ import { MoodGrid } from "./components/MoodGrid";
 import { Spinner } from "@mood/components/Spinner";
 import { LogOutButton } from "./components/LogOutButton";
 import { RecentsDialog } from "./components/RecentsDialog";
-import { FloatingButtonWithTooltip } from "./components/shared/FloatingButtonWithTooltip";
-import { History } from "lucide-react";
 
 function App() {
   const { session, isLoading } = useSessionContext();
@@ -16,16 +14,7 @@ function App() {
   return (
     <div className="p-4">
       <MoodGrid />
-      <RecentsDialog
-        trigger={
-          <FloatingButtonWithTooltip
-            tooltip="Recents"
-            Icon={History}
-            onClick={() => null}
-            position="fixed bottom-28 right-8"
-          />
-        }
-      />
+      <RecentsDialog />
       <LogOutButton />
     </div>
   );

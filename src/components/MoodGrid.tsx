@@ -1,4 +1,4 @@
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import FadeIn from "./vend/FadeIn";
 import { toast } from "sonner";
 import { useApi } from "@mood/api";
@@ -66,6 +66,7 @@ export function MoodGrid() {
 
 function MoodCard(props: { mood: string; image: string }) {
   const { logMood } = useApi().mutations;
+  const client = useQueryClient();
   const { mutate } = useMutation({
     mutationFn: logMood,
     onError: (error) => {
@@ -73,6 +74,7 @@ function MoodCard(props: { mood: string; image: string }) {
     },
     onSuccess: () => {
       toast("Logged mood!");
+      void client.invalidateQueries("recents");
     },
   });
 

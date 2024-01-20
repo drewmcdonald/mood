@@ -11,7 +11,6 @@ import {
 import { SignInForm } from "./SignInForm";
 import { Button } from "./ui/button";
 import { GitHubIcon } from "./vend/GitHubIcon";
-import { GoogleIcon } from "./vend/GoogleIcon";
 import { Separator } from "./ui/separator";
 import { useSbClient } from "@mood/hooks/useSbClient";
 
@@ -25,18 +24,10 @@ export default function SignInCard({ className }: { className?: string }) {
       <CardContent>
         <Button
           variant="outline"
-          className="mb-2 w-full"
+          className="mb-4 w-full"
           onClick={() =>
             void client.auth
-              .signInWithOAuth({
-                provider: "google",
-                options: {
-                  queryParams: {
-                    access_type: "offline",
-                    prompt: "consent",
-                  },
-                },
-              })
+              .signInWithOAuth({ provider: "github" })
               .then(({ data, error }) => {
                 console.log(data);
                 if (error) console.error(error);
@@ -44,10 +35,6 @@ export default function SignInCard({ className }: { className?: string }) {
               })
           }
         >
-          <GoogleIcon className="mr-2 h-4 w-4" />
-          Sign in with Google
-        </Button>
-        <Button variant="outline" className="mb-4 w-full" disabled>
           <GitHubIcon className="mr-2 h-4 w-4" />
           Sign in with GitHub
         </Button>

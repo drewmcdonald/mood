@@ -11,7 +11,6 @@ import {
   FormMessage,
 } from "@mood/components/ui/form";
 import { Input } from "@mood/components/ui/input";
-import { toast } from "sonner";
 import { useSbClient } from "@mood/hooks/useSbClient";
 
 const FormSchema = z.object({
@@ -19,7 +18,13 @@ const FormSchema = z.object({
   password: z.string(),
 });
 
-export function SignInForm() {
+export function SignInForm({
+  isSignUp,
+  setIsSignUp,
+}: {
+  isSignUp: boolean;
+  setIsSignUp: (isSignUp: boolean) => void;
+}) {
   const client = useSbClient();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -30,10 +35,20 @@ export function SignInForm() {
   });
 
   function onSubmit({ email, password }: z.infer<typeof FormSchema>) {
-    client.auth.signInWithPassword({ email, password }).catch((error) => {
-      console.error(error);
-      toast.error((error as Error).message);
-    });
+    if (isSignUp)
+      client.auth.signUp({ email, password }).catch((error) => {
+        console.error(error);
+      });
+    else
+      client.auth
+        .signInWithPassword({ email, password })
+        .then(({ data, error }) => {
+          console.log(data);
+          console.error(error);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
   }
 
   return (
@@ -65,8 +80,20 @@ export function SignInForm() {
           )}
         />
         <Button type="submit" variant="default" className="w-full">
-          Sign in
+          {isSignUp ? "Sign up" : "Log in"}
         </Button>
+        <div className="pt-2 text-center text-xs text-slate-600">
+          {isSignUp ? "Already have an account?" : "Don't have an account?"}
+          &nbsp;
+          <a
+            className="cursor-pointer text-slate-800 underline"
+            onClick={() => {
+              setIsSignUp(!isSignUp);
+            }}
+          >
+            {isSignUp ? "Log in" : "Sign up"}
+          </a>
+        </div>
       </form>
     </Form>
   );

@@ -20,10 +20,9 @@ function App() {
         trigger={
           <FloatingButtonWithTooltip
             tooltip="Recents"
-            bottom={28}
-            right={8}
             Icon={History}
             onClick={() => null}
+            position="fixed bottom-28 right-8"
           />
         }
       />

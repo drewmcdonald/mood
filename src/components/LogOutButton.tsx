@@ -7,8 +7,7 @@ export function LogOutButton() {
   return (
     <FloatingButtonWithTooltip
       tooltip="Log out"
-      bottom={8}
-      right={8}
+      position="fixed bottom-8 right-8"
       onClick={() => void client.auth.signOut()}
       Icon={LogOut}
     />

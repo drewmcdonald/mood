@@ -7,6 +7,7 @@ import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Toaster } from "./components/ui/sonner.tsx";
 import { TooltipProvider } from "./components/ui/tooltip.tsx";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const queryClient = new QueryClient();
 
@@ -21,5 +22,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         </SessionContextProvider>
       </QueryClientProvider>
     </TooltipProvider>
+    <SpeedInsights />
   </React.StrictMode>,
 );

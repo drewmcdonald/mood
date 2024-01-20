@@ -15,7 +15,7 @@ const minimalPresetNoPadding: Preset = {
     padding: 0,
   },
   apple: {
-    sizes: [180],
+    sizes: [152, 180],
     padding: 0,
   },
 };

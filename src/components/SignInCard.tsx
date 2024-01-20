@@ -27,7 +27,21 @@ export default function SignInCard({ className }: { className?: string }) {
           variant="outline"
           className="mb-2 w-full"
           onClick={() =>
-            void client.auth.signInWithOAuth({ provider: "google" })
+            void client.auth
+              .signInWithOAuth({
+                provider: "google",
+                options: {
+                  queryParams: {
+                    access_type: "offline",
+                    prompt: "consent",
+                  },
+                },
+              })
+              .then(({ data, error }) => {
+                console.log(data);
+                if (error) console.error(error);
+                return;
+              })
           }
         >
           <GoogleIcon className="mr-2 h-4 w-4" />

@@ -10,7 +10,6 @@ import { useApi } from "@mood/api";
 import { Spinner } from "./Spinner";
 import { FloatingButtonWithTooltip } from "./shared/FloatingButtonWithTooltip";
 import { Calendar } from "lucide-react";
-
 import {
   Table,
   TableBody,
@@ -19,38 +18,32 @@ import {
   TableHeader,
   TableRow,
 } from "@mood/components/ui/table";
+import {
+  createColumnHelper,
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+} from "@tanstack/react-table";
+import { ScrollArea } from "./ui/scroll-area";
 
-export function MoodTable() {
-  const { status, data } = useQuery("recents", useApi().queries.recents);
-
-  if (status !== "success") {
-    return <Spinner />;
-  }
-
-  return (
-    <Table>
-      {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
-      <TableHeader>
-        <TableRow>
-          <TableHead className="w-64">Time</TableHead>
-          <TableHead>Mood</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {data?.map(({ id, mood, created_at }) => (
-          <TableRow key={id}>
-            <TableCell className="font-medium">
-              {new Date(created_at).toLocaleString()}
-            </TableCell>
-            <TableCell>{mood}</TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
-  );
+interface MoodEntry {
+  created_at: string;
+  mood: string;
 }
 
+const columnHelper = createColumnHelper<MoodEntry>();
+const columns = [
+  columnHelper.accessor("created_at", {
+    id: "created_at",
+    header: "Time",
+    cell: (info) => new Date(info.getValue()).toLocaleString(),
+  }),
+  columnHelper.accessor("mood", { id: "mood" }),
+];
+
 export function RecentsDialog() {
+  const { status, data } = useQuery("recents", useApi().queries.recents);
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -60,12 +53,56 @@ export function RecentsDialog() {
           position="fixed bottom-28 right-8"
         />
       </DialogTrigger>
-      <DialogContent className="max-h-5/6 grow flex-col content-start">
+
+      <DialogContent className="max-h-5/6">
         <DialogHeader>
           <DialogTitle>Recent Moods</DialogTitle>
         </DialogHeader>
-        <MoodTable />
+        <ScrollArea className="max-h-[75vh]">
+          {status === "success" ? <MoodTable data={data ?? []} /> : <Spinner />}
+        </ScrollArea>
       </DialogContent>
     </Dialog>
+  );
+}
+
+function MoodTable({ data }: { data: MoodEntry[] }) {
+  const table = useReactTable({
+    data,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+    enableRowSelection: true,
+  });
+
+  return (
+    <Table>
+      <TableHeader>
+        {table.getHeaderGroups().map((headerGroup) => (
+          <TableRow key={headerGroup.id}>
+            {headerGroup.headers.map((header) => (
+              <TableHead key={header.id}>
+                {header.isPlaceholder
+                  ? null
+                  : flexRender(
+                      header.column.columnDef.header,
+                      header.getContext(),
+                    )}
+              </TableHead>
+            ))}
+          </TableRow>
+        ))}
+      </TableHeader>
+      <TableBody>
+        {table.getRowModel().rows.map((row) => (
+          <TableRow key={row.id}>
+            {row.getVisibleCells().map((cell) => (
+              <TableCell key={cell.id}>
+                {flexRender(cell.column.columnDef.cell, cell.getContext())}
+              </TableCell>
+            ))}
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
   );
 }

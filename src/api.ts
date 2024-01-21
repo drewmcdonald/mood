@@ -10,7 +10,7 @@ export function useApi() {
           .from("moods")
           .select()
           .order("created_at", { ascending: false })
-          .limit(10);
+          .limit(50);
         return result.data;
       },
     },

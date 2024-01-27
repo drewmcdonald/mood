@@ -53,7 +53,7 @@ export function PhoneForm({ setPhone }: { setPhone: (p: string) => void }) {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input placeholder="1234567890" {...field} />
+                <Input autoFocus placeholder="1234567890" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

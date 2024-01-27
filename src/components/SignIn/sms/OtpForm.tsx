@@ -40,7 +40,12 @@ export function OtpForm({ phone }: { phone: string }) {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input type="string" placeholder="xxxxxx" {...field} />
+                <Input
+                  autoFocus
+                  type="string"
+                  placeholder="xxxxxx"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>

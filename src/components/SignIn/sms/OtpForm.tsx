@@ -42,6 +42,7 @@ export function OtpForm({ phone }: { phone: string }) {
               <FormControl>
                 <Input
                   autoFocus
+                  autoComplete="one-time-code"
                   type="string"
                   placeholder="xxxxxx"
                   {...field}

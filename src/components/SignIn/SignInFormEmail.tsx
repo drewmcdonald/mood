@@ -18,7 +18,7 @@ const FormSchema = z.object({
   password: z.string(),
 });
 
-export function SignInForm({
+export function SignInFormEmail({
   isSignUp,
   setIsSignUp,
 }: {

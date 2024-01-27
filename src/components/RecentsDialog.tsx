@@ -54,7 +54,7 @@ export function RecentsDialog() {
         />
       </DialogTrigger>
 
-      <DialogContent className="max-h-5/6">
+      <DialogContent className="max-h-[90%] max-w-[90%]">
         <DialogHeader>
           <DialogTitle>Recent Moods</DialogTitle>
         </DialogHeader>

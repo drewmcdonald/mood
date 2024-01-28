@@ -25,7 +25,7 @@ const FloatingButtonWithTooltip = React.forwardRef<
         ref={ref}
         aria-label={tooltip}
         className={cn(
-          `h-16 w-16 animate-fade-in-95 rounded-full bg-slate-200 opacity-95 shadow-md transition-all duration-300 ease-in-out hover:-translate-x-3 hover:scale-105 hover:bg-current hover:bg-opacity-95 hover:shadow-xl dark:bg-slate-700`,
+          `h-16 w-16 animate-fade-in-95 rounded-full bg-slate-200 opacity-95 shadow-md transition-all duration-300 ease-in-out hover:-translate-x-3 hover:scale-105 hover:bg-current hover:bg-opacity-95 hover:shadow-xl dark:bg-slate-700 dark:hover:bg-slate-500`,
           className,
         )}
         {...props}

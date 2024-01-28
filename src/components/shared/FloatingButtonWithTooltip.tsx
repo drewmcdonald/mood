@@ -30,12 +30,12 @@ const FloatingButtonWithTooltip = React.forwardRef<
         )}
         {...props}
       >
-        <Icon className="size-7 stroke-primary stroke-1" />
+        <Icon className="size-7 stroke-primary stroke-1 dark:stroke-primary-foreground" />
       </Button>
     </TooltipTrigger>
     <TooltipContent
       side="left"
-      className="animate-fade-in-95 text-primary opacity-95 shadow-md"
+      className="animate-fade-in-95 opacity-95 shadow-md"
     >
       {tooltip}
     </TooltipContent>

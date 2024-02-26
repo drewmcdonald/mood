@@ -95,9 +95,9 @@ function MoodCard(props: { mood: string; image: string }) {
         />
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-tr from-slate-900 to-transparent to-30% opacity-100 transition-all duration-500 ease-in-out group-hover:opacity-0" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-foreground to-transparent to-30% opacity-100 transition-all duration-500 ease-in-out group-hover:opacity-0" />
       <div className="absolute inset-0 flex items-end justify-start p-4">
-        <h3 className="sm:text-md font-bold text-slate-100 transition-all duration-500 ease-in-out group-hover:-translate-x-1 group-hover:-translate-y-2 group-hover:text-transparent">
+        <h3 className="sm:text-md font-bold text-background transition-all duration-500 ease-in-out group-hover:-translate-x-1 group-hover:-translate-y-2 group-hover:text-transparent">
           {props.mood}
         </h3>
       </div>

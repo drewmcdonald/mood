@@ -82,11 +82,11 @@ export function SignInFormEmail({
         <Button type="submit" variant="default" className="w-full">
           {isSignUp ? "Sign up" : "Log in"}
         </Button>
-        <div className="pt-2 text-center text-xs text-slate-600">
+        <div className="pt-2 text-center text-xs text-muted">
           {isSignUp ? "Already have an account?" : "Don't have an account?"}
           &nbsp;
           <a
-            className="cursor-pointer text-slate-800 underline"
+            className="cursor-pointer text-foreground underline"
             onClick={() => {
               setIsSignUp(!isSignUp);
             }}

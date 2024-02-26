@@ -24,18 +24,19 @@ const FloatingButtonWithTooltip = React.forwardRef<
       <Button
         ref={ref}
         aria-label={tooltip}
+        variant="secondary"
         className={cn(
-          `h-16 w-16 animate-fade-in-95 rounded-full bg-slate-200 opacity-95 shadow-md transition-all duration-300 ease-in-out hover:-translate-x-3 hover:scale-105 hover:bg-current hover:bg-opacity-95 hover:shadow-xl dark:bg-slate-700 dark:hover:bg-slate-500`,
+          `h-16 w-16 animate-fade-in-95 rounded-full opacity-95 shadow-md transition-all duration-300 ease-in-out hover:scale-105 hover:bg-opacity-95 hover:shadow-xl`,
           className,
         )}
         {...props}
       >
-        <Icon className="size-7 stroke-primary stroke-1 dark:stroke-primary-foreground" />
+        <Icon className="size-full stroke-gunmetal-50 stroke-[1.5]" />
       </Button>
     </TooltipTrigger>
     <TooltipContent
       side="left"
-      className="animate-fade-in-95 opacity-95 shadow-md"
+      className="animate-fade-in-95 border-none bg-gunmetal-100 text-gunmetal-900 opacity-95 shadow-md"
     >
       {tooltip}
     </TooltipContent>

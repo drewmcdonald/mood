@@ -1,6 +1,6 @@
 export function Spinner() {
   return (
-    <div className="fixed inset-0 mx-auto mt-8 flex h-20 w-20 items-center justify-center stroke-slate-600 stroke-1 dark:stroke-primary-foreground">
+    <div className="fixed inset-0 mx-auto mt-8 flex h-20 w-20 items-center justify-center stroke-primary stroke-1">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <g>
           <circle cx="12" cy="12" r="9.5" fill="none" strokeLinecap="round">
